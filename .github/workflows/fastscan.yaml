@@ -26,5 +26,6 @@ jobs:
          cd ${{ github.workspace }}
           git_folder=$(basename "$(git rev-parse --show-toplevel)")
           docker run -v $(pwd):/fastScan/sourceCode searaph/gitlab-fastscan /fastScan/sourceCode -n $git_folder
+          
 
           
