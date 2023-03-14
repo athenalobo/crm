@@ -20,6 +20,12 @@ jobs:
 
       - name: Pull docker image
         run: docker pull searaph/gitlab-fastscan
+        
+      - name: Get Git Folder Name
+        run: |
+         cd ${{ github.workspace }}
+          git_folder=$(basename "$(git rev-parse --show-toplevel)")
+          echo "Git folder name: $git_folder"
 
       - name: Run docker container
-        run: docker run -v $(pwd):/fastScan/sourceCode searaph/gitlab-fastscan /fastScan/sourceCode -n ${{github.repository}} | cut -d'/' -f 2
+        run: docker run -v $(pwd):/fastScan/sourceCode searaph/gitlab-fastscan /fastScan/sourceCode -n $git_folder
