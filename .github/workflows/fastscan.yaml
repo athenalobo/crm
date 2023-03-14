@@ -22,4 +22,4 @@ jobs:
         run: docker pull searaph/gitlab-fastscan
 
       - name: Run docker container
-        run: docker run -v $(pwd):/fastScan/sourceCode searaph/gitlab-fastscan /fastScan/sourceCode -n Smart_Brain
+        run: docker run -v $(pwd):/fastScan/sourceCode searaph/gitlab-fastscan /fastScan/sourceCode -n ${{github.repository}}
