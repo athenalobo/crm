@@ -21,7 +21,7 @@ jobs:
       - name: Pull docker image
         run: docker pull searaph/gitlab-fastscan
         
-      - name: Get Git Folder Name
+      - name: Run Fast Scan
         run: |
          cd ${{ github.workspace }}
           git_folder=$(basename "$(git rev-parse --show-toplevel)")
